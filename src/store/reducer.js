@@ -1,10 +1,13 @@
+import * as actionTypes from './actions'; 
+
 const initialState = {
     persons: []
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case "PERSON_ADD":
+        
+        case actionTypes.PERSON_ADD:
             const newPerson = {
                 id: Math.random(), // not really unique but good enough here!
                 name: 'Flo',
@@ -14,7 +17,7 @@ const reducer = (state = initialState, action) => {
                 persons: state.persons.concat(newPerson)
             };
 
-        case "PERSON_DELETE":
+        case actionTypes.PERSON_DELETE:
             return { 
                 persons: state.persons.filter(person => person.id !== action.personId)
             };
